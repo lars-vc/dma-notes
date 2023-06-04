@@ -73,7 +73,7 @@ Combining blockbased ME with block based transform coding
 I frame/slice: intra coded
 P frame/slice: inter coded, 1 ref 
 B frame/slice: inter coded, 2 ref 
-IDR frame: can not be reffed before: can not be reffed before
+IDR frame: any refs can not go beyond this frame
 
 Intra prediction
 
@@ -82,15 +82,14 @@ Sub pixel ME
 Approaches
 - interpolate current block and search window, then ME
 - interpolate only the search window, then ME
-- interger-pixel ME, then refine with interpolated block and search window
-- interger-pixel ME, then refine with interpolated search window
+- integer-pixel ME, then refine with interpolated block and search window
+- integer-pixel ME, then refine with interpolated search window
 
 MRF-ME
 
 Variable block size for ME
 
-Variable sized transforms (recently smaller transforms are chosen, less ringing)
-
+Variable sized transforms (recently smaller transforms are chosen, less ringing) \
 Drift with DCT and IDCT precision
 
 In loop deblocking operations
@@ -167,7 +166,7 @@ Type of objective metrics
     - use features from the original content and the distorted content
 
 Types in different dimension:
-- Pxiel based
+- Pixel based
 - Stream based
 - Hybrid
 
@@ -175,14 +174,14 @@ Examples
 - PSNR
 - SSIM
 - VMAF
-    - WIF
+    - VIF
     - DLM
     - Mean Co-Located Pixel Difference
 - VSNR
 - VQM
 
 
-RDO
+### RDO
 Difficulties
 - Size of parameter space
 - Best setting vary for different spatio-temporal regions
@@ -302,6 +301,7 @@ Watch recording
 
 
 ## Chapter 13 The future
+(note slides B first then A)
 360 video
 - ERP
     - Downsides:
@@ -315,11 +315,10 @@ Watch recording
 - SSP
 
 Problems with 360 video
-- Head doesn't rotate around vertical axis of eye
-- Gradually decreasing stereo effect towards 90 angle
+- Regular 360 video (1 sphere) Head doesn't rotate around vertical axis of eye
+- Stereoscopic camera (2 spheres) Gradually decreasing stereo effect towards 90 angle, cameras will capture same image when looking to the side 90 degrees
 - Stereoscopy
     - VAC
-    Check recording
 
 ### Light fields
 Capturing
@@ -329,15 +328,31 @@ Capturing
 Light field rendering, cna be performed after capturing!
 5D light field to 4D light field
 Light slab = focal plane + camera plane
+Inherent to the light field:
 - walk around
 - choosing aperture
 - choosing focus distance
+Application of the light field:
+- 4D depth processing
+- 4D camera tracking
+- CGI integration
 
 ### Light field encoding
+Inter prediction approach (snake): not good because you usually only need a part of the image but you still need to decode the whole thing
+Multiview video compression approach (matrix): same problem but better compression
+Multiview + depth: send less but add some depth info, so this introduces loss but is more accessible (everything become matt, lambertian)
 
-### idk
-HDR
-barten ramp
+### Other stuff
+Spatial resolution
+
+Temporal resolution
+
+Dynamic range
+- stops => double brightness == bits
+- HDR
+
+Barten ramp (15bit -> 12 bit)
+
 WCG
 
 
@@ -379,3 +394,11 @@ temporal masking
 chapt 8
 - 33-36 (frequency shit)
 - 64 (merge mode)
+chapt 10
+- 97-101 (psnr vs mos)
+chapt 11
+- 32-33 (ref pics)
+- 50 (erec)
+- 53-60 (pyramid quant)
+- 70 (boundary matching)
+- 74-78 (svc/mdc)
