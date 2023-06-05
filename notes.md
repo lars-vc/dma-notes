@@ -7,7 +7,7 @@
 
 forward/backward/bidirectional prediction
 
-- motion est issues
+- motion estimation issues
     - motion model
     - matching criterion
     - region of support
@@ -26,7 +26,7 @@ Models:
     - perspective
 - node mesh
 
-Mostly used, translational only models
+Mostly used: translational only models
 
 Something about frequency domain idk
 
@@ -69,7 +69,7 @@ MVP predict motion vectors based on neighboring motion vectors (think intra pred
 
 
 ## Chapter 9 Hybrid Block based Video Codec
-Combining blockbased ME with block based transform coding
+Combining block based ME with block based transform coding
 I frame/slice: intra coded
 P frame/slice: inter coded, 1 ref 
 B frame/slice: inter coded, 2 ref 
@@ -200,8 +200,7 @@ VBR/CBR
 Problem when combining RDO and rate control
 - To perform RDO for a coding unit → QP must be known
 - To do rate control → QP depends on the content and thus on SAD or a variance measure.
-- The actual SAD of the coding unit is not available until after the RDO process
-is complete;
+- The actual SAD of the coding unit is not available until after the RDO process is complete;
     - Rate control estimates the SAD of the current coding unit
 - Header information such as coding unit modes and MV information are not
 available before the RDO process completes;
@@ -264,7 +263,7 @@ PVQ ||Pyramid Vector Quantization||
 
 ### Error concealment
 Detect errors
-header information
+- header information
 - error detecting/correcting codes
 - erroneous syntax or semantics
 - deviating video signal characteristics
@@ -272,7 +271,6 @@ header information
 Spatial error concealment
 - weighted average
 - sobel filter for edge detection
-- region based interpolation (directional interpolation)
 
 Temporal error concealment
 - temporal copying
@@ -294,10 +292,7 @@ MDC = number of independent ‘encodings’ (descriptions)
 
 ## Chapter 12 Video Coding Standards
 
-ITU-T VCEG
-MPEG
-
-Watch recording
+4 stages + PPPCEAP
 
 
 ## Chapter 13 The future
@@ -386,8 +381,8 @@ Touma Gotsman
 Threshold of hearing
 Equal loudness relations (fletcher munson curves) phons
 Frequency masking
-critical bands
-temporal masking
+Critical bands
+Temporal masking
 
 
 ## Questionable slides:
@@ -402,3 +397,5 @@ chapt 11
 - 53-60 (pyramid quant)
 - 70 (boundary matching)
 - 74-78 (svc/mdc)
+chapt 15
+- critical band oscillation
