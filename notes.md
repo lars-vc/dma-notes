@@ -245,8 +245,8 @@ Frame type (I – P – B)
     - errors are contained within a frame
 
 Intrarefresh
-Reference Picture Selection RPS
-Periodic Reference Frames PRF
+Reference Picture Selection
+Periodic Reference Frames
 
 Synchronization codeword
 
@@ -281,7 +281,7 @@ Temporal error concealment
     - MV from spatial neighbors
     - MV from temporal neighbors
     - combination
-Boundary matching error
+    - (external) Boundary matching error
 
 Hybrid methods
 
@@ -293,6 +293,7 @@ MDC = number of independent ‘encodings’ (descriptions)
 ## Chapter 12 Video Coding Standards
 
 4 stages + PPPCEAP
+Learn entire table
 
 
 ## Chapter 13 The future
@@ -384,18 +385,3 @@ Frequency masking
 Critical bands
 Temporal masking
 
-
-## Questionable slides:
-chapt 8
-- 33-36 (frequency shit)
-- 64 (merge mode)
-chapt 10
-- 97-101 (psnr vs mos)
-chapt 11
-- 32-33 (ref pics)
-- 50 (erec)
-- 53-60 (pyramid quant)
-- 70 (boundary matching)
-- 74-78 (svc/mdc)
-chapt 15
-- critical band oscillation
